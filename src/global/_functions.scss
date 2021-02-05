@@ -1,0 +1,6 @@
+@import 'variables';
+
+@function calculateRem($size){
+  $remSize: $size / $lumaFontSize;
+  @return #{$remSize}rem;
+}

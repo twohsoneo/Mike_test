@@ -1,0 +1,23 @@
+@import 'variables';
+@import 'functions';
+
+@mixin fontSize($size){
+  font-size: $size; // Fallback in px
+  font-size: calculateRem($size);
+}
+
+@mixin lineHeight($size){
+  line-height: $size; // Fallback in px
+  line-height: calculateRem($size);
+}
+
+@mixin lineClamp($rows, $lineHeightSize){
+    $remSize: #{$lineHeightSize / $lumaFontSize}rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $rows;
+    max-height: $lineHeightSize;
+    max-height: calc(#{$remSize} * #{$rows});
+}

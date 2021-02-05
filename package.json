@@ -1,0 +1,46 @@
+{
+  "name": "lumavate-starter",
+  "version": "0.0.1",
+  "description": "Component Set",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "scripts": {
+    "lint": "jslint '**/*.component.json'",
+    "build": "npm run lint && stencil build --docs",
+    "dev-build": "npm run lint && stencil build --dev && npm run postbuild",
+    "postbuild": ".luma-build/post-build.sh",
+    "build-push": "npm run build && ./build-push.sh",
+    "start": "stencil build --dev --watch --serve",
+    "storybook": "start-storybook --ci -s ./src/assets,www -p 9000 -c .luma-storybook",
+    "storybook-watch": "run-p start storybook",
+    "test": "stencil test --spec --e2e",
+    "test-watch": "stencil test --spec --e2e --watchAll",
+    "generate": "stencil generate"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.0",
+    "@stencil/core": "^1.7.4",
+    "@stencil/postcss": "^1.0.1",
+    "@stencil/sass": "^1.1.1",
+    "@storybook/addon-options": "^5.3.13",
+    "@storybook/addon-viewport": "^5.3.13",
+    "@storybook/html": "^5.3.13",
+    "autoprefixer": "^9.7.1",
+    "babel-loader": "^8.0.6"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@lumavate/core": "0.0.28",
+    "@stencil/router": "^1.0.1",
+    "underscore": "^1.9.2"
+  }
+}
